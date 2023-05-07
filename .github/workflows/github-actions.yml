@@ -13,4 +13,4 @@ jobs:
       - name: Build the Docker image
         run: docker build -t vietdeptrai/react-docker -f Dockerfile.dev .
       - name: Run unit tests
-        run: docker run vietdeptrai/react-docker npm run test
+        run: docker run -e CI=true vietdeptrai/react-docker npm run test
