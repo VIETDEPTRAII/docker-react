@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  build:
+  Build-And-Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build -t VIETDEPTRAII/react-docker Dockerfile.dev .
+        run: docker build -t vietdeptrai/react-docker Dockerfile.dev .
       - name: Run unit tests
-        run: docker run VIETDEPTRAII/react-docker npm run test
+        run: docker run vietdeptrai/react-docker npm run test
