@@ -1,0 +1,16 @@
+name: GitHub Actions
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  Build-And-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build -t vietdeptrai/react-docker -f Dockerfile.dev .
+      - name: Run unit tests
+        run: docker run -e CI=true vietdeptrai/react-docker npm run test
