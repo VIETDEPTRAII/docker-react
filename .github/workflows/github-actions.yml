@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build -t vietdeptrai/react-docker Dockerfile.dev .
+        run: docker build -t vietdeptrai/react-docker -f Dockerfile.dev .
       - name: Run unit tests
         run: docker run vietdeptrai/react-docker npm run test
